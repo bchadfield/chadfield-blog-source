@@ -1,0 +1,23 @@
+# Dependencies
+markdown:         kramdown
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Ben Chadfield
+tagline:          A blog
+url:              http://chadfield.org
+baseurl:          /
+
+author:
+  name:           'Ben Chadfield'
+  url:            https://twitter.com/benchadfield
+
+paginate:         5
+paginate_path:    "page/:num"
+
+jekyll_timeago:
+  depth:          1
+  suffix:         'old'
