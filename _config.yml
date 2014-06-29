@@ -25,3 +25,5 @@ jekyll_timeago:
 assets:
   js_compressor:  uglifier
   css_compressor: sass
+
+exclude: [rakefile.rb, CNAME, LICENSE.md, README.md]
