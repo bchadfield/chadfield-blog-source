@@ -1,14 +1,15 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
+        <img src="/assets/images/ben.jpg" alt="Picture of me" class="avatar" />
       {% if page.title == "Home" %}
         <h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
       {% else %}
         <h2><a href="{{ site.baseurl }}">{{ site.title }}</a></h2>
       {% endif %}
       <p class="bio">
-        Co-founder of <a href="htp://csworkflow.com">CS Workflow</a>.
-        Also <a href="htp://secretsanta.csworkflow.com">Blog Secret Santa</a> and
+        Co-founder of <a href="http://csworkflow.com">CS Workflow</a>.
+        Also <a href="http://secretsanta.csworkflow.com">Blog Secret Santa</a> and
         <a href="http://www.meetup.com/Content-Strategy-Melbourne/">Content Strategy Melbourne meetup</a>.
         Lots of content and coding. My daughter is {{ "2013-06-14" | timeago }}.
       </p>
