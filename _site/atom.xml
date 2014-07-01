@@ -4,13 +4,288 @@
  <title>Ben Chadfield</title>
  <link href="http://chadfield.org/atom.xml" rel="self"/>
  <link href="http://chadfield.org/"/>
- <updated>2014-06-29T18:50:26+10:00</updated>
+ <updated>2014-07-01T11:56:08+10:00</updated>
  <id>http://chadfield.org</id>
  <author>
    <name>Ben Chadfield</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>How I migrated from Wordpress to Jekyll</title>
+   <link href="http://chadfield.org/work/how-i-migrated-wordpress-to-jekyll/"/>
+   <updated>2014-07-01T00:00:00+10:00</updated>
+   <id>http://chadfield.org/work/how-i-migrated-wordpress-to-jekyll</id>
+   <content type="html">&lt;p&gt;Last weekend I migrated my personal blog from &lt;a href=&quot;http://wordpress.org&quot; target=&quot;_blank&quot;&gt;Wordpress&lt;/a&gt; to &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;. I tweeted as I went
+to keep some sort of record of what I&#39;d done and the decisions I&#39;d
+made. I also hoped that anyone else wanting to do the same thing would
+find it helpful.&lt;/p&gt;
+
+&lt;p&gt;It all started because GoDaddy reminded me that my hosting was about to
+expire. I&#39;d been using Jekyll for the CS Workflow site and loved it.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;The hosting on &lt;a href=&quot;http://t.co/0WqTirL8Vw&quot;&gt;http://t.co/0WqTirL8Vw&lt;/a&gt; is about to expire so today
+I’ll be migrating from wordpress to jekyll and hosting on github&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482683466551541760&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That last part about hosting on Github isn&#39;t true. I hosted it on the
+&lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt; server.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-jekyll-and-why-use-it&quot;&gt;What is Jekyll and why use it?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a static site generator. A static site doesn&#39;t use any server
+side processing. Web browsers can easily handle static HTML, CSS, and
+Javascript. You&#39;ve seen this in action if you have ever double-clicked
+a .html file on your desktop and had it opened in your browser.&lt;/p&gt;
+
+&lt;p&gt;Jekyll uses a template, processing rules, and content to generate a
+static site. Each page of the site has its .html file. The HTML file,
+along with the stylesheets, scripts, and images, can be uploaded to any
+web server. There are tons of &lt;a href=&quot;https://www.google.com.au/search?q=hosting+static+website&quot; target=&quot;_blank&quot;&gt;ways to host static sites&lt;/a&gt; and almost all of them are free.&lt;/p&gt;
+
+&lt;p&gt;Wordpress, in comparison, uses PHP and MySQL to generate HTML each time
+a Wordpress page is viewed. The template is filled with content from the
+database, which is displayed by the browser. This only takes a few
+hundredths of a second.&lt;/p&gt;
+
+&lt;p&gt;Wordpress makes having a website really easy, especially is you use
+&lt;a href=&quot;http://wordpress.com&quot; target=&quot;_blank&quot;&gt;Wordpress.com&lt;/a&gt; and don&#39;t worry about your own
+hosting. Almost everything can be managed through the web-based admin
+console. You can be completely removed from everything technical, like
+HTML markup and installing plugins. Wordpress and platforms like it have
+allowed millions of people with no web development skills to have their
+own websites. That&#39;s a great thing!&lt;/p&gt;
+
+&lt;p&gt;Why bother with Jekyll then? Jekyll is faster. The site will be faster
+to use. Getting a new site setup is faster. Oh, and it supports Markdown
+by default. I love faster and I love Markdown, but the main reason I
+love Jekyll is that it puts me in total control over my entire site. I
+have instant access to style, layout, and content in a single text editor.
+I&#39;m using &lt;a href=&quot;https://atom.io/&quot; target=&quot;_blank&quot;&gt;Atom&lt;/a&gt; for my text editor at the
+moment, which I completely recommend.&lt;/p&gt;
+
+&lt;p&gt;It&#39;s totally a preference thing and there is a skills barrier to Jekyll, so it&#39;s not for
+everyone.&lt;/p&gt;
+
+&lt;h3 id=&quot;exporting-from-wordpress&quot;&gt;Exporting from Wordpress&lt;/h3&gt;
+
+&lt;p&gt;Let&#39;s get on with it. The migration starts with exporting my content
+from Wordpress. I&#39;d seen in Jekyll&#39;s documentation that there is
+support for migrating. I started there, but the documentation wasn&#39;t
+very thorough and I imagined using their method would waste time.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;Jekyll’s migration docs for wordpress make me think there will be lots
+of messing around with exporting importing &lt;a href=&quot;http://t.co/Zc74OpukEI&quot;&gt;http://t.co/Zc74OpukEI&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482685148064780288&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Off to google to find a good guide. I didn&#39;t want to spend a lot of
+time or energy on this migration, so a good tutorial saves both. I
+recommend the &lt;a href=&quot;http://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/&quot; target=&quot;_blank&quot;&gt;how-to guide on girliemac.com&lt;/a&gt;.
+This is what I followed. I&#39;ll assume your also using that as a
+reference and only chime in if I have something to add.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;This looks like a good how-to guide. I would have forgotten about
+exporting comments. &lt;a href=&quot;http://t.co/jIh9JmyHCW&quot;&gt;http://t.co/jIh9JmyHCW&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482685882965561344&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One of the first steps was to export comments to Disqus. I didn&#39;t have
+many comments, but I wanted to keep the few I had. I hadn&#39;t setup
+Disqus on a site before. It took than 3 minutes to complete the steps,
+going by the twitter timestamps.&lt;/p&gt;
+
+&lt;p&gt;Disqus had updated its export/import method and it was even easier that
+the way shown in the tutorial. Imports are queued and it took a few
+hours before mine were processed.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;Disqus is set up already. So easy. They’ve improved the exporting
+support so there are steps in the how-to I can skip.&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482686642310746113&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jekyll&#39;s Wordpress exporter accessed the database remotely. The
+tutorial uses &lt;a href=&quot;https://github.com/benbalter/wordpress-to-jekyll-exporter&quot;&gt;wordpress-to-jekyll-exporter&lt;/a&gt;, a Wordpress plugin.
+This plugin isn&#39;t searchable in the Wordpress plugin directory. I
+uploaded the plugin zip file to the plugin folder using FTP. Then I used
+the plugin installer in my Wordpress admin console to unzip, install,
+and activate the plugin.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;Wordpress to jekyll exporter plugin installed. Export done in one
+click! &lt;a href=&quot;https://t.co/NiWVXZIlhX&quot;&gt;https://t.co/NiWVXZIlhX&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482687960865714176&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The export was done with one click on the &#39;Export to Jekyll&#39; link in
+the Wordpress console. This exported my posts and pages to Markdown. It
+also added any uploaded media to the export.&lt;/p&gt;
+
+&lt;p&gt;My only issue was that it used the .md Markdown extension instead of
+.markdown, which I prefer. I used
+the view/edit method in Filezilla and did a find and replace in the plugin file to change the .md
+to .markdown. I tried to use the plugin editor in the Wordpress console,
+but it went crazy when I tried to save the changes.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;The plugin uses .md instead of .markdown which I prefer. I’ve edited
+the plugin and exported again (in one click!)&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482688323618500608&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;All exported now to work on the template. I’ll use CS Workflow’s
+preview template builder to get the markup and css.
+&lt;a href=&quot;http://t.co/o9tY5rJQCz&quot;&gt;http://t.co/o9tY5rJQCz&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/482689963738161153&quot;&gt;June 28, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;setting-up-jekyll&quot;&gt;Setting up Jekyll&lt;/h3&gt;
+
+&lt;p&gt;I didn&#39;t export my template. I decided to redesign instead. This is
+where I wasted the most time. I looked at theme sites for inspiration.&lt;/p&gt;
+
+&lt;p&gt;I can&#39;t remember what I searched for, but I found &lt;a href=&quot;http://getpoole.com/&quot; target=&quot;_blank&quot;&gt;Poole&lt;/a&gt;, a Jekyll start kit built by Mark Otto of Bootstrap
+fame. Poole already looks pretty good, but has two themes. I used the
+&lt;a href=&quot;http://hyde.getpoole.com/&quot; target=&quot;_blank&quot;&gt;Hyde&lt;/a&gt; theme, which I made a few changes to.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Made the post header an H1. Originally it was an H2 with the site
+title (on the left column) always an H1.&lt;/li&gt;
+  &lt;li&gt;Changed the blog roll pagination directory from /page2/ to page/2/.&lt;/li&gt;
+  &lt;li&gt;Removed the pages menu from the left column. I only had the home page,
+so this was unnecessary.&lt;/li&gt;
+  &lt;li&gt;Removed the special font from the site title in the left and just went
+with the standard PT Sans.&lt;/li&gt;
+  &lt;li&gt;Added an avatar image for myself.&lt;/li&gt;
+  &lt;li&gt;Added social icons with links.&lt;/li&gt;
+  &lt;li&gt;Changed the related posts header from H3 to H4.&lt;/li&gt;
+  &lt;li&gt;Added a background cover image for the left column. I got the image
+from &lt;a href=&quot;http://nos.twnsnd.co/&quot; target=&quot;_blank&quot;&gt;this awesome photo resource&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Increased the font size of the post headers.&lt;/li&gt;
+  &lt;li&gt;Added a little clock icon next to the post dates.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I think that&#39;s it. All I needed to do was to copy and paste the export
+Markdown files into the &lt;code&gt;_posts&lt;/code&gt; directory and run &lt;code&gt;jekyll build&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;I went with Poole with the Hyde as a Jekyll foundation.
+&lt;a href=&quot;http://t.co/LB89E46M0s&quot;&gt;http://t.co/LB89E46M0s&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/483111061327863808&quot;&gt;June 29, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I needed to host the site myself because there are a few restrictions to
+hosting on Github. The main one that stopped me going with that option
+is not being able to use plugins. I use two plugins. The first is to
+&lt;a href=&quot;https://github.com/markets/jekyll-timeago&quot; target=&quot;_blank&quot;&gt;figure out how old&lt;/a&gt; my daughter is. This is
+displayed in my bio in the left column. Jekyll uses &lt;a href=&quot;http://docs.shopify.com/themes/liquid-basics&quot; target=&quot;_blank&quot;&gt;Liquid
+templates&lt;/a&gt;, but doesn&#39;t come with a timeago
+filter as standard. The second plugin is &lt;a href=&quot;https://github.com/ixti/jekyll-assets&quot; target=&quot;_blank&quot;&gt;jekyll-assets&lt;/a&gt;, which compiles the different stylesheets into a
+single, minified, gzipped, and cache-busting css file. This makes
+loading for the first time even faster.&lt;/p&gt;
+
+&lt;p&gt;To start, I created a new Github repository called
+&lt;a href=&quot;https://github.com/bchadfield/chadfield-blog&quot; target=&quot;_blank&quot;&gt;chadfield-blog&lt;/a&gt;. This gives me cloud-hosted
+source control using git. Github also makes deploying changes really
+easy. To get the site on to the server I sshed in and ran &lt;code&gt;git clone
+https://github.com/bchadfield/chadfield-blog.git&lt;/code&gt; from the directory I
+wanted to serve the site from. To get any future updates I run &lt;code&gt;git
+pull&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;By default Jekyll generates the site in the &lt;code&gt;_site&lt;/code&gt; folder. For CS
+Workflow I&#39;d set the build destination to a different directory which
+used its own git repository. This time I kept the source and generated
+site together.&lt;/p&gt;
+
+&lt;p&gt;The trade off of managing a single repository is that I&#39;m deploying the
+source files to the web server and not just the static site. I point the
+web server to &lt;code&gt;/chadfield-blog/_site&lt;/code&gt; instead of &lt;code&gt;/chadfield-blog&lt;/code&gt; and
+have a few extra kilobytes on the server.&lt;/p&gt;
+
+&lt;p&gt;All I needed to do was add the site to the Nginx config, restart Nginx,
+and point the domain name at the server IP address.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;www.chadfield.org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;rewrite&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://chadfield.org&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$request_uri?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;permanent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;chadfield.org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/home/deployer/chadfield-blog/_site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;index.html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+  &lt;p&gt;Finished migrating my Wordpress blog to Jekyll. Here’s the result
+&lt;a href=&quot;http://t.co/mh7jjG3fpk&quot;&gt;http://t.co/mh7jjG3fpk&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;— Ben Chadfield (@benchadfield) &lt;a href=&quot;https://twitter.com/benchadfield/statuses/483111432959954944&quot;&gt;June 29, 2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;publishing-workflow&quot;&gt;Publishing workflow&lt;/h3&gt;
+
+&lt;p&gt;Obviously, the steps to get new content published is different to
+Wordpress. I&#39;ll lay out the steps needs and what I&#39;ve done to make it
+easier.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write a new post.&lt;/li&gt;
+  &lt;li&gt;Create a new Markdown file in the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/li&gt;
+  &lt;li&gt;Add meta-data and content to the Markdown file.&lt;/li&gt;
+  &lt;li&gt;Run &lt;code&gt;jekyll serve&lt;/code&gt; and test locally that everything is okay.&lt;/li&gt;
+  &lt;li&gt;Commit changes to git using &lt;code&gt;git add -A&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Push local git repository to Github using &lt;code&gt;git push origin master&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;ssh into the server and run &lt;code&gt;git pull&lt;/code&gt; in the site directory.&lt;/li&gt;
+  &lt;li&gt;Check on my site that the changes are okay.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I automate steps 5, 6, and 7 using a rakefile. I use &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt; to write, get reviews, and export meta-data to
+Markdown.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Commit changes to website repo&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:commit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Committing...&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;git add -A &amp;amp;&amp;amp; git commit -m &amp;#39;Site update&amp;#39; &amp;amp;&amp;amp; git push origin master&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Update code in production&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:update&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Updating production...&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ssh user@server.com &amp;#39;cd site-directory &amp;amp;&amp;amp; git pull&amp;#39;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To use that copy into &lt;code&gt;rakefile.rb&lt;/code&gt; and change the ssh details and site
+directory. Then all I need to do is run &lt;code&gt;rake commit&lt;/code&gt; and &lt;code&gt;rake update&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hopefully you found that helpful. There’s plenty of gaps, which is why I’ve called it
+titled it as how I migrated rather than a general how to. Really there’s not much to
+improve on the how to I referenced. Feel free to ask any questions or offer improvements
+I could make.&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Birthing a Content Strategy</title>
