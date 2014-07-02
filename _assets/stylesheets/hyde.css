@@ -161,6 +161,10 @@ a.sidebar-nav-item:focus {
   padding-bottom: 4rem;
 }
 
+.content p {
+  font-family: "PT Serif", serif;
+}
+
 @media (min-width: 48em) {
   .content {
     max-width: 38rem;
