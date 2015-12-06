@@ -26,4 +26,8 @@ assets:
   js_compressor:  uglifier
   css_compressor: sass
 
-exclude: [rakefile.rb, CNAME, LICENSE.md, README.md]
+exclude: [Rakefile, CNAME, LICENSE.md, README.md, Gemfile, Gemfile.lock]
+
+gems:
+  - jekyll-assets
+  - jekyll-paginate
