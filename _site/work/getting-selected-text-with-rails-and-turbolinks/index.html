@@ -15,7 +15,7 @@
     
   </title>
 
-  <link rel="stylesheet" href="/assets/application-69e7e23bca522e04ab6f812fa7dda4c5.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-536fbdce1e9d1dd1184c315951a68594320acffaaa3aa4af6db2a9ef73b38605.css">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400,400italic,700">
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
@@ -38,7 +38,7 @@
         Co-founder of <a href="http://csworkflow.com">CS Workflow</a>.
         Also <a href="http://secretsanta.csworkflow.com">Blog Secret Santa</a> and
         <a href="http://www.meetup.com/Content-Strategy-Melbourne/">Content Strategy Melbourne meetup</a>.
-        Lots of content and coding. My daughter is 1 year old.
+        Lots of content and coding.
       </p>
     </div>
 
@@ -87,7 +87,7 @@
       
     </nav> -->
 
-    <p class="copyright">&copy; 2014. All rights reserved.</p>
+    <p class="copyright">&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -100,32 +100,31 @@
 
 <p>So…I needed to know the text that the user had selected with their cursor. This would be used to create context for the comment they wanted to make on the text. I started by using <a href="http://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text" target="_blank">a popular method I found on Stack Overflow</a>.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">getSelectionText</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">getSelectionText</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">toString</span><span class="p">();</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">selection</span> <span class="o">&amp;&amp;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">type</span> <span class="o">!=</span> <span class="s2">&quot;Control&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">selection</span> <span class="o">&amp;&amp;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">type</span> <span class="o">!=</span> <span class="s2">"Control"</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">createRange</span><span class="p">().</span><span class="nx">text</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>This worked fine in a static proof of concept. It also initially worked in my Rails project. By initially I mean after a browser refresh. As soon as I navigated to other pages and retested the function fell through and returned nothing. The rest of my javascript is fine. I am displaying a positioned button after text is selected and once clicked, the button performs an action with the selected text. This all works as expected.</p>
 
 <p>I don’t know enough about the DOM or getSelection method to figure it out on my own. I set Google on it, which turned up a <a href="http://www.codeproject.com/Articles/292159/Javascript-code-to-get-selected-text" target="_blank">different function from the rest</a>.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">GetSelectedText</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">GetSelectedText</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">selectedText</span> <span class="o">=</span> <span class="p">(</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span>
-    <span class="o">?</span>
+    <span class="p">?</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">()</span>
-    <span class="o">:</span>
+    <span class="p">:</span>
       <span class="nb">document</span><span class="p">.</span><span class="nx">getSelection</span>
-      <span class="o">?</span>
+      <span class="p">?</span>
         <span class="nb">document</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">()</span>
-      <span class="o">:</span>
+      <span class="p">:</span>
         <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">createRange</span><span class="p">().</span><span class="nx">text</span>
   <span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">selectedText</span> <span class="o">||</span> <span class="nx">selectedText</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">selectedText</span> <span class="o">||</span> <span class="nx">selectedText</span><span class="o">==</span><span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">selectionStart</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">selectedText</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span>
         <span class="nb">document</span><span class="p">.</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">selectionStart</span>
@@ -133,8 +132,7 @@
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">selectedText</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>That is now working. Or at least it fixes my previous bug. It’s the nested if where selectedText is blank that solves it. I don’t like the if else in the selectedText initiation so I’m using the original function is start with.</p>
 

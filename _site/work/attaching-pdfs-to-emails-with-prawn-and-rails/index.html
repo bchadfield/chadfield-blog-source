@@ -15,7 +15,7 @@
     
   </title>
 
-  <link rel="stylesheet" href="/assets/application-69e7e23bca522e04ab6f812fa7dda4c5.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-536fbdce1e9d1dd1184c315951a68594320acffaaa3aa4af6db2a9ef73b38605.css">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400,400italic,700">
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
@@ -38,7 +38,7 @@
         Co-founder of <a href="http://csworkflow.com">CS Workflow</a>.
         Also <a href="http://secretsanta.csworkflow.com">Blog Secret Santa</a> and
         <a href="http://www.meetup.com/Content-Strategy-Melbourne/">Content Strategy Melbourne meetup</a>.
-        Lots of content and coding. My daughter is 1 year old.
+        Lots of content and coding.
       </p>
     </div>
 
@@ -87,7 +87,7 @@
       
     </nav> -->
 
-    <p class="copyright">&copy; 2014. All rights reserved.</p>
+    <p class="copyright">&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -104,26 +104,24 @@
 
 <p>To start I added Prawn to my Gemfile and ran bundle. The latest version was 0.12.0 at writing.</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">gem</span> <span class="s1">&#39;prawn&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.12.0&#39;</span>
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'prawn'</span><span class="p">,</span> <span class="s1">'~&gt; 0.12.0'</span></code></pre></figure>
 
 <p>I found out that through an error message that Rails 4 already has the PDF mimetype registered, so that part of the railscast can be skipped.</p>
 
 <p>I rendered a test PDF in the browser so I could make sure it looked how I wanted before attaching it to an email. Refreshing the browser displayed the changes. To get this working I created a ‘test’ action in my briefs controller and added that as a route.</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">test</span>
-  <span class="vi">@brief</span> <span class="o">=</span> <span class="no">Brief</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">test_brief</span><span class="p">)</span>
-  <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span><span class="p">(</span><span class="s2">&quot;ben@csworkflow.com&quot;</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">test</span>
+  <span class="vi">@brief</span> <span class="o">=</span> <span class="no">Brief</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">test_brief</span><span class="p">)</span>
+  <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by_email</span><span class="p">(</span><span class="s2">"ben@csworkflow.com"</span><span class="p">)</span>
   <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
-    <span class="nb">format</span><span class="o">.</span><span class="n">pdf</span> <span class="k">do</span>
-      <span class="n">pdf</span> <span class="o">=</span> <span class="no">BriefPdf</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@brief</span><span class="p">,</span> <span class="vi">@user</span><span class="p">)</span>
-      <span class="n">send_data</span> <span class="n">pdf</span><span class="o">.</span><span class="n">render</span><span class="p">,</span> <span class="ss">filename</span><span class="p">:</span> <span class="s2">&quot;brief_</span><span class="si">#{</span><span class="vi">@brief</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                            <span class="ss">type</span><span class="p">:</span> <span class="s2">&quot;application/pdf&quot;</span><span class="p">,</span>
-                            <span class="ss">disposition</span><span class="p">:</span> <span class="s2">&quot;inline&quot;</span>
+    <span class="nb">format</span><span class="p">.</span><span class="nf">pdf</span> <span class="k">do</span>
+      <span class="n">pdf</span> <span class="o">=</span> <span class="no">BriefPdf</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@brief</span><span class="p">,</span> <span class="vi">@user</span><span class="p">)</span>
+      <span class="n">send_data</span> <span class="n">pdf</span><span class="p">.</span><span class="nf">render</span><span class="p">,</span> <span class="ss">filename: </span><span class="s2">"brief_</span><span class="si">#{</span><span class="vi">@brief</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                            <span class="ss">type: </span><span class="s2">"application/pdf"</span><span class="p">,</span>
+                            <span class="ss">disposition: </span><span class="s2">"inline"</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></figure>
 
 <p>Following the same pattern as the railscast, I created a <a href="https://gist.github.com/bchadfield/5274166" target="_blank">BriefsPdf class</a> that inherited from Prawn::Document. This initializes, taking the arguments, which are my objects, then calls methods that render boxes and text. It’s a bit hacked together, but you get the picture. I kept the <a href="http://chadfield.org/assets/brief.pdf" target="_blank">testing output</a>, so that’s what the class renders.</p>
 
@@ -131,16 +129,15 @@
 
 <p>The mailer is the simplest part of the whole process.</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">send_brief</span><span class="p">(</span><span class="n">brief</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">send_brief</span><span class="p">(</span><span class="n">brief</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
   <span class="vi">@brief</span> <span class="o">=</span> <span class="n">brief</span>
   <span class="vi">@user</span> <span class="o">=</span> <span class="n">user</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;brief_</span><span class="si">#{</span><span class="vi">@brief</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">parameterize</span><span class="p">(</span><span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m%d&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.pdf&quot;</span>
-  <span class="n">attachments</span><span class="o">[</span><span class="n">filename</span><span class="o">]</span> <span class="o">=</span> <span class="no">BriefPdf</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@brief</span><span class="p">,</span> <span class="vi">@user</span><span class="p">)</span><span class="o">.</span><span class="n">render</span>
-  <span class="n">mail</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
-       <span class="ss">cc</span><span class="p">:</span> <span class="vi">@brief</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
-       <span class="ss">subject</span><span class="p">:</span> <span class="s2">&quot;New brief from </span><span class="si">#{</span><span class="vi">@brief</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div>
+  <span class="n">filename</span> <span class="o">=</span> <span class="s2">"brief_</span><span class="si">#{</span><span class="vi">@brief</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">parameterize</span><span class="p">(</span><span class="n">sep</span> <span class="o">=</span> <span class="s1">'_'</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">strftime</span><span class="p">(</span><span class="s1">'%Y%m%d'</span><span class="p">)</span><span class="si">}</span><span class="s2">.pdf"</span>
+  <span class="n">attachments</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="no">BriefPdf</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@brief</span><span class="p">,</span> <span class="vi">@user</span><span class="p">).</span><span class="nf">render</span>
+  <span class="n">mail</span><span class="p">(</span><span class="ss">to: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">email</span><span class="p">,</span>
+       <span class="ss">cc: </span><span class="vi">@brief</span><span class="p">.</span><span class="nf">email</span><span class="p">,</span>
+       <span class="ss">subject: </span><span class="s2">"New brief from </span><span class="si">#{</span><span class="vi">@brief</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">end</span></code></pre></figure>
 
 <p>I’m using a dynamic file name for the PDF, so the client and copywriter have a reference. The actual attachment is a single line.</p>
 

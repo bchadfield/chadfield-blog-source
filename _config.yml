@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         kramdown
-pygments:         true
+highlights:         true
 
 # Permalinks
 permalink:        pretty
@@ -18,15 +18,11 @@ author:
 paginate:         5
 paginate_path:    "page/:num"
 
-jekyll_timeago:
-  depth:          1
-  suffix:         'old'
-
 assets:
   js_compressor:  uglifier
   css_compressor: sass
 
-exclude: [Rakefile, CNAME, LICENSE.md, README.md, Gemfile, Gemfile.lock]
+exclude: [Rakefile, LICENSE.md, README.md, Gemfile, Gemfile.lock]
 
 gems:
   - jekyll-assets

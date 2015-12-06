@@ -4,7 +4,7 @@
  <title>Ben Chadfield</title>
  <link href="http://chadfield.org/atom.xml" rel="self"/>
  <link href="http://chadfield.org/"/>
- <updated>2014-11-19T18:08:14+11:00</updated>
+ <updated>2015-12-06T10:46:33+00:00</updated>
  <id>http://chadfield.org</id>
  <author>
    <name>Ben Chadfield</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>Blog Secret Santa's problems from last year and this year's fixes</title>
    <link href="http://chadfield.org/work/blog-secret-santa-problems-and-fixes/"/>
-   <updated>2014-11-19T00:00:00+11:00</updated>
+   <updated>2014-11-19T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/blog-secret-santa-problems-and-fixes</id>
    <content type="html">&lt;p&gt;Last year’s &lt;a href=&quot;http://blogsecretsanta.com&quot;&gt;Blog Secret Santa&lt;/a&gt; was fun, for the most part. The platform was totally hacked together in the fewest hours possible, using as much code from &lt;a href=&quot;http://csworkflow.com&quot;&gt;CS Workflow&lt;/a&gt; as possible. People could sign up with their Twitter accounts, at a certain time they would get matched with someone to write for, they could add their gift post, and it was delivered at Christmas.&lt;/p&gt;
 
@@ -78,7 +78,7 @@
  <entry>
    <title>How I migrated from Wordpress to Jekyll</title>
    <link href="http://chadfield.org/work/how-i-migrated-wordpress-to-jekyll/"/>
-   <updated>2014-07-01T00:00:00+10:00</updated>
+   <updated>2014-07-01T00:00:00+01:00</updated>
    <id>http://chadfield.org/work/how-i-migrated-wordpress-to-jekyll</id>
    <content type="html">&lt;p&gt;Last weekend I migrated my personal blog from &lt;a href=&quot;http://wordpress.org&quot; target=&quot;_blank&quot;&gt;Wordpress&lt;/a&gt; to &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;. I tweeted as I went
 to keep some sort of record of what I&#39;d done and the decisions I&#39;d
@@ -283,19 +283,18 @@ have a few extra kilobytes on the server.&lt;/p&gt;
 &lt;p&gt;All I needed to do was add the site to the Nginx config, restart Nginx,
 and point the domain name at the server IP address.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nginx&quot; data-lang=&quot;nginx&quot;&gt;&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
  &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
  &lt;span class=&quot;kn&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;www.chadfield.org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;kn&quot;&gt;rewrite&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://chadfield.org&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$request_uri?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;permanent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;rewrite&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://chadfield.org&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$request_uri&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;permanent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
  &lt;span class=&quot;kn&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
  &lt;span class=&quot;kn&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;chadfield.org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;kn&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/home/deployer/chadfield-blog/_site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;kn&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/home/deployer/chadfield-blog/_site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
  &lt;span class=&quot;kn&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;index.html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;
   &lt;p&gt;Finished migrating my Wordpress blog to Jekyll. Here’s the result
@@ -324,18 +323,17 @@ easier.&lt;/p&gt;
 &lt;p&gt;I automate steps 5, 6, and 7 using a rakefile. I use &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt; to write, get reviews, and export meta-data to
 Markdown.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Commit changes to website repo&amp;quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Commit changes to website repo&quot;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:commit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Committing...&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;git add -A &amp;amp;&amp;amp; git commit -m &amp;#39;Site update&amp;#39; &amp;amp;&amp;amp; git push origin master&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Committing...&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;git add -A &amp;amp;&amp;amp; git commit -m &#39;Site update&#39; &amp;amp;&amp;amp; git push origin master&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Update code in production&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Update code in production&quot;&lt;/span&gt;
 	&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:update&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Updating production...&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ssh user@server.com &amp;#39;cd site-directory &amp;amp;&amp;amp; git pull&amp;#39;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Updating production...&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ssh user@server.com &#39;cd site-directory &amp;amp;&amp;amp; git pull&#39;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To use that copy into &lt;code&gt;rakefile.rb&lt;/code&gt; and change the ssh details and site
 directory. Then all I need to do is run &lt;code&gt;rake commit&lt;/code&gt; and &lt;code&gt;rake update&lt;/code&gt;.&lt;/p&gt;
@@ -353,7 +351,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Birthing a Content Strategy</title>
    <link href="http://chadfield.org/work/birthing-a-content-strategy/"/>
-   <updated>2013-12-25T00:00:00+11:00</updated>
+   <updated>2013-12-25T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/birthing-a-content-strategy</id>
    <content type="html">&lt;p&gt;&lt;em&gt;This post is part of a creative, generous effort in the content strategy community called &lt;a target=&quot;_blank&quot; href=&quot;http://secretsanta.csworkflow.com/&quot;&gt;Blog Secret Santa&lt;/a&gt;. Many thanks to &lt;a href=&quot;http://twitter.com/mbloomstein&quot;&gt;Margot Bloomstein&lt;/a&gt; for the &lt;a href=&quot;https://twitter.com/mbloomstein/status/395969851820220416&quot; target=&quot;_blank&quot;&gt;germ of the idea&lt;/a&gt;, and to Ben Chadfield for taking it to fruition, expanding it into a community of 50 content strategy bloggers. I am honored to have gotten Ben as my Blog Secret Santa outlet! – Currently anonymous guest blogger&lt;/em&gt;&lt;/p&gt;
 
@@ -391,7 +389,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>I&#8217;m not a content strategist</title>
    <link href="http://chadfield.org/work/im-not-a-content-strategist/"/>
-   <updated>2013-12-03T00:00:00+11:00</updated>
+   <updated>2013-12-03T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/im-not-a-content-strategist</id>
    <content type="html">&lt;p&gt;Over the last dozen or so years I’ve worked for quite a few companies and on an uncountable (because who can remember) number of digital projects. As you would hope, I did learn things.&lt;/p&gt;
 
@@ -426,7 +424,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Why I love giving feedback</title>
    <link href="http://chadfield.org/work/why-i-love-giving-feedback/"/>
-   <updated>2013-11-22T00:00:00+11:00</updated>
+   <updated>2013-11-22T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/why-i-love-giving-feedback</id>
    <content type="html">&lt;p&gt;I suck at following my own advice. &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow’s website&lt;/a&gt; is pretty bad, we’re not active on social media and the amount of content we’re producing is only slightly more than none (there’s good stuff in the pipeline).&lt;/p&gt;
 
@@ -448,7 +446,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>What I learnt from my old boss that made me quit</title>
    <link href="http://chadfield.org/work/what-i-learnt-from-my-old-boss-that-made-me-quit/"/>
-   <updated>2013-10-31T00:00:00+11:00</updated>
+   <updated>2013-10-31T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/what-i-learnt-from-my-old-boss-that-made-me-quit</id>
    <content type="html">&lt;p&gt;I resigned from my job nearly two months ago. We had recently hired someone that could easily step up into the vacancy I was leaving, so I could handover and be out of there quickly. There were lots of reasons for resigning. The main one was that my wife needed more help raising our baby daughter. Spending all that time at work, while my wife was struggling alone just didn’t make sense.&lt;/p&gt;
 
@@ -499,7 +497,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Be careful what you say about your competition</title>
    <link href="http://chadfield.org/work/be-careful-what-you-say-about-your-competition/"/>
-   <updated>2013-06-23T00:00:00+10:00</updated>
+   <updated>2013-06-23T00:00:00+01:00</updated>
    <id>http://chadfield.org/work/be-careful-what-you-say-about-your-competition</id>
    <content type="html">&lt;p&gt;People don’t like it when someone is attacked, especially when the attack seems unjustified or there’s an underdog being attacked. This is a reasonably common human trait that still operates in the world of business.&lt;/p&gt;
 
@@ -514,38 +512,37 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Getting selected text with Rails and Turbolinks</title>
    <link href="http://chadfield.org/work/getting-selected-text-with-rails-and-turbolinks/"/>
-   <updated>2013-06-06T00:00:00+10:00</updated>
+   <updated>2013-06-06T00:00:00+01:00</updated>
    <id>http://chadfield.org/work/getting-selected-text-with-rails-and-turbolinks</id>
    <content type="html">&lt;p&gt;I have to start by confessing that I don’t know what it is about Turbolinks that caused the issue I was having. I’m only edu-guessing that Turbolinks is the cause.&lt;/p&gt;
 
 &lt;p&gt;So…I needed to know the text that the user had selected with their cursor. This would be used to create context for the comment they wanted to make on the text. I started by using &lt;a href=&quot;http://stackoverflow.com/questions/5379120/get-the-highlighted-selected-text&quot; target=&quot;_blank&quot;&gt;a popular method I found on Stack Overflow&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSelectionText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSelectionText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Control&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Control&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createRange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This worked fine in a static proof of concept. It also initially worked in my Rails project. By initially I mean after a browser refresh. As soon as I navigated to other pages and retested the function fell through and returned nothing. The rest of my javascript is fine. I am displaying a positioned button after text is selected and once clicked, the button performs an action with the selected text. This all works as expected.&lt;/p&gt;
 
 &lt;p&gt;I don’t know enough about the DOM or getSelection method to figure it out on my own. I set Google on it, which turned up a &lt;a href=&quot;http://www.codeproject.com/Articles/292159/Javascript-code-to-get-selected-text&quot; target=&quot;_blank&quot;&gt;different function from the rest&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GetSelectedText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GetSelectedText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
       &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
       &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createRange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;activeElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectionStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;activeElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;activeElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectionStart&lt;/span&gt;
@@ -553,8 +550,7 @@ I could make.&lt;/p&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That is now working. Or at least it fixes my previous bug. It’s the nested if where selectedText is blank that solves it. I don’t like the if else in the selectedText initiation so I’m using the original function is start with.&lt;/p&gt;
 </content>
@@ -563,7 +559,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>My pillars of marketing strategy</title>
    <link href="http://chadfield.org/work/my-pillars-of-marketing-strategy/"/>
-   <updated>2013-04-27T00:00:00+10:00</updated>
+   <updated>2013-04-27T00:00:00+01:00</updated>
    <id>http://chadfield.org/work/my-pillars-of-marketing-strategy</id>
    <content type="html">&lt;p&gt;I keep coming back to the same three pillars when developing marketing strategies. This is regardless of industry, company size, customer type, and channel. These pillars are awareness, engagement and innovation. There’s nothing complicated or ground-breaking here, just a simple structure I like to work with.&lt;/p&gt;
 
@@ -594,7 +590,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Attaching PDFs to emails with Prawn and Rails</title>
    <link href="http://chadfield.org/work/attaching-pdfs-to-emails-with-prawn-and-rails/"/>
-   <updated>2013-03-31T00:00:00+11:00</updated>
+   <updated>2013-03-31T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/attaching-pdfs-to-emails-with-prawn-and-rails</id>
    <content type="html">&lt;p&gt;Yesterday I released a very simple tool to help copywriters get better briefs. I had a couple of days dev time up my sleeve while other parts of the main &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt; project are getting worked on.&lt;/p&gt;
 
@@ -604,26 +600,24 @@ I could make.&lt;/p&gt;
 
 &lt;p&gt;To start I added Prawn to my Gemfile and ran bundle. The latest version was 0.12.0 at writing.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;prawn&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;gt; 0.12.0&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;prawn&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;~&amp;gt; 0.12.0&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;I found out that through an error message that Rails 4 already has the PDF mimetype registered, so that part of the railscast can be skipped.&lt;/p&gt;
 
 &lt;p&gt;I rendered a test PDF in the browser so I could make sure it looked how I wanted before attaching it to an email. Refreshing the browser displayed the changes. To get this working I created a ‘test’ action in my briefs controller and added that as a route.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Brief&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;ben@csworkflow.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ben@csworkflow.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BriefPdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;send_data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;brief_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                            &lt;span class=&quot;ss&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;application/pdf&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                            &lt;span class=&quot;ss&quot;&gt;disposition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;inline&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pdf&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BriefPdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;send_data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;filename: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;brief_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                            &lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;application/pdf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                            &lt;span class=&quot;ss&quot;&gt;disposition: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;inline&quot;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Following the same pattern as the railscast, I created a &lt;a href=&quot;https://gist.github.com/bchadfield/5274166&quot; target=&quot;_blank&quot;&gt;BriefsPdf class&lt;/a&gt; that inherited from Prawn::Document. This initializes, taking the arguments, which are my objects, then calls methods that render boxes and text. It’s a bit hacked together, but you get the picture. I kept the &lt;a href=&quot;http://chadfield.org/assets/brief.pdf&quot; target=&quot;_blank&quot;&gt;testing output&lt;/a&gt;, so that’s what the class renders.&lt;/p&gt;
 
@@ -631,16 +625,15 @@ I could make.&lt;/p&gt;
 
 &lt;p&gt;The mailer is the simplest part of the whole process.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brief&lt;/span&gt;
   &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;brief_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;%Y%m%d&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.pdf&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;attachments&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BriefPdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-       &lt;span class=&quot;ss&quot;&gt;cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-       &lt;span class=&quot;ss&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;New brief from &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;brief_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;_&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;%Y%m%d&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.pdf&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attachments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BriefPdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;render&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;to: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;ss&quot;&gt;cc: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;ss&quot;&gt;subject: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;New brief from &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@brief&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;I’m using a dynamic file name for the PDF, so the client and copywriter have a reference. The actual attachment is a single line.&lt;/p&gt;
 
@@ -660,7 +653,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Grads, where are your blogs?</title>
    <link href="http://chadfield.org/work/grads-where-are-your-blogs/"/>
-   <updated>2013-03-21T00:00:00+11:00</updated>
+   <updated>2013-03-21T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/grads-where-are-your-blogs</id>
    <content type="html">&lt;p&gt;MailGuard is at the end of the hiring process for a new junior marketing assistant. We were looking for someone with less than a year’s experience to help with some cool stuff and be cheap. The candidates that made it to my desk had already made it past the first hurdle. I had a dozen or so applications to review.&lt;/p&gt;
 
@@ -679,7 +672,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Shutting down Dibbist: mistakes and lessons</title>
    <link href="http://chadfield.org/work/shutting-down-dibbist-mistakes-and-lessons/"/>
-   <updated>2013-03-18T00:00:00+11:00</updated>
+   <updated>2013-03-18T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/shutting-down-dibbist-mistakes-and-lessons</id>
    <content type="html">&lt;p&gt;Recently I posted about the results of my &lt;a href=&quot;http://chadfield.org/work/my-experiment-with-cold-calling/&quot; title=&quot;My experiment with cold calling&quot; target=&quot;_blank&quot;&gt;cold call experiment&lt;/a&gt; for Dibbist. Last week I closed down the online appointment service. I made that decision because I had made a lot of mistakes and wanted to do it right with &lt;a href=&quot;http://csworkflow.com&quot; title=&quot;CS Workflow landing page&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt;. So what were these mistakes?&lt;/p&gt;
 
@@ -762,7 +755,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>CS Workflow is now taking registrations of interest</title>
    <link href="http://chadfield.org/work/cs-workflow-is-now-taking-registrations-of-interest/"/>
-   <updated>2013-03-14T00:00:00+11:00</updated>
+   <updated>2013-03-14T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/cs-workflow-is-now-taking-registrations-of-interest</id>
    <content type="html">&lt;p&gt;Copywriters can now register their interest for &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;CS Workflow&lt;/a&gt;. You can do that here: &lt;a href=&quot;http://csworkflow.com&quot; target=&quot;_blank&quot;&gt;http://csworkflow.com&lt;/a&gt;.&lt;/p&gt;
 
@@ -781,7 +774,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>My experiment with cold calling</title>
    <link href="http://chadfield.org/work/my-experiment-with-cold-calling/"/>
-   <updated>2013-03-02T00:00:00+11:00</updated>
+   <updated>2013-03-02T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/my-experiment-with-cold-calling</id>
    <content type="html">&lt;p&gt;My first real product was launched last year. &lt;a href=&quot;https://www.dibbist.com&quot; target=&quot;_blank&quot;&gt;Dibbist&lt;/a&gt; is an online appointment system for small businesses. I’ve failed to attract any subscribers and I know all the reasons why. I’ll do an more in depth post about what I did wrong. This post is about my cold calling experiment for Dibbist.&lt;/p&gt;
 
@@ -804,7 +797,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>PeepCode&#8217;s Ember tutorial is essential</title>
    <link href="http://chadfield.org/work/peepcodes-ember-tutorial-is-essential/"/>
-   <updated>2013-02-16T00:00:00+11:00</updated>
+   <updated>2013-02-16T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/peepcodes-ember-tutorial-is-essential</id>
    <content type="html">&lt;p&gt;From my previous post on &lt;a href=&quot;http://chadfield.org/work/my-progress-with-learning-mongo-and-ember&quot; target=&quot;_blank&quot;&gt;my learning progress&lt;/a&gt;, you’ll know I was running through a few Ember tutorials. Through these I learnt a bit, but I wasn’t grasping Ember’s MVC concept with the single model example apps. I was starting to feel like an idiot.&lt;/p&gt;
 
@@ -819,7 +812,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Waiting to meet my daughter</title>
    <link href="http://chadfield.org/life/waiting-to-meet-my-daughter/"/>
-   <updated>2013-02-02T00:00:00+11:00</updated>
+   <updated>2013-02-02T00:00:00+00:00</updated>
    <id>http://chadfield.org/life/waiting-to-meet-my-daughter</id>
    <content type="html">&lt;p&gt;About 10 days have past since we found out that we’re having a girl. We were waiting for over 3 months to find out. Waiting until the birth didn’t make sense. I still can’t imagine what it’s going to be like having this new person in our life. I’ve managed to avoid being around babies more almost my entire life. Vicky will make sure I’m not useless, and her family will be living in Melbourne by the time she’s due. That’s June, by the way. June 12th at this stage.&lt;/p&gt;
 
@@ -832,7 +825,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>My progress with learning Mongo and Ember</title>
    <link href="http://chadfield.org/work/my-progress-with-learning-mongo-and-ember/"/>
-   <updated>2013-02-02T00:00:00+11:00</updated>
+   <updated>2013-02-02T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/my-progress-with-learning-mongo-and-ember</id>
    <content type="html">&lt;p&gt;I’ve spent about 16 hours running through tutorials, reading and rebuilding &lt;a href=&quot;http://www.poopee.com.au&quot; target=&quot;_blank&quot;&gt;Poopee&lt;/a&gt;. This post will cover what I’ve learnt so far and how.&lt;/p&gt;
 
@@ -857,7 +850,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>The hurdle to a Capistrano deploy and setup on a new micro EC2 Ubuntu instance</title>
    <link href="http://chadfield.org/work/the-hurdle-to-a-capistrano-deploy-and-setup-on-a-new-micro-ec2-ubuntu-instance/"/>
-   <updated>2013-01-26T00:00:00+11:00</updated>
+   <updated>2013-01-26T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/the-hurdle-to-a-capistrano-deploy-and-setup-on-a-new-micro-ec2-ubuntu-instance</id>
    <content type="html">&lt;p&gt;At the end of last year I set myself the challenge of getting &lt;a href=&quot;https://github.com/capistrano/capistrano&quot; target=&quot;_blank&quot;&gt;Capistrano&lt;/a&gt; to deploy updates for &lt;a href=&quot;https://www.dibbist.com&quot; target=&quot;_blank&quot;&gt;Dibbist&lt;/a&gt;. Two previous attempts had tripped up on the same Rake issues. It was something to do with my server setup and I didn’t want to start from scratch.&lt;/p&gt;
 
@@ -881,7 +874,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Cementing the lesson about identifying the core problem</title>
    <link href="http://chadfield.org/work/cementing-the-lesson-about-identifying-the-core-problem/"/>
-   <updated>2013-01-10T00:00:00+11:00</updated>
+   <updated>2013-01-10T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/cementing-the-lesson-about-identifying-the-core-problem</id>
    <content type="html">&lt;p&gt;Sometimes you explain a principle in a simple way that makes it both memorable and easy to understand. Sometimes when when you make this explanation you cement the principle in a new, deep way for yourself. I did this the other day when defending using carefully crafted web copy to sell products instead of feature lists. I was attempting to show that selling a product based on the problem it solves is not a way to trick customers into purchasing.&lt;/p&gt;
 
@@ -904,7 +897,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>My Goals for 2013</title>
    <link href="http://chadfield.org/life/my-goals-for-2013/"/>
-   <updated>2013-01-09T00:00:00+11:00</updated>
+   <updated>2013-01-09T00:00:00+00:00</updated>
    <id>http://chadfield.org/life/my-goals-for-2013</id>
    <content type="html">&lt;p&gt;This is my list of personal development goals for the next 12 months. I want them to be as far from new year’s resolutions as possible. I want my goals to be as &lt;a href=&quot;http://en.wikipedia.org/wiki/SMART_criteria&quot; target=&quot;_blank&quot;&gt;smart&lt;/a&gt; as possible.&lt;/p&gt;
 
@@ -930,7 +923,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>How I Want To Be Treated By Brands On Social Media</title>
    <link href="http://chadfield.org/work/how-i-want-to-be-treated-by-brands-on-social-media/"/>
-   <updated>2012-12-28T00:00:00+11:00</updated>
+   <updated>2012-12-28T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/how-i-want-to-be-treated-by-brands-on-social-media</id>
    <content type="html">&lt;p&gt;During my honeymoon in Malaysia I was reminded of the way I wanted businesses to act on social media. Brands should be reaching out to consumers to try to keep or steal their loyalty.&lt;/p&gt;
 
@@ -959,7 +952,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>What I learnt from the Instagram TOS drama</title>
    <link href="http://chadfield.org/work/what-i-learnt-from-the-instagram-tos-drama/"/>
-   <updated>2012-12-19T00:00:00+11:00</updated>
+   <updated>2012-12-19T00:00:00+00:00</updated>
    <id>http://chadfield.org/work/what-i-learnt-from-the-instagram-tos-drama</id>
    <content type="html">&lt;p&gt;Today a wide range of media jumped on the fact that the new terms seemed allow Instagram to sell your photos to advertisers and keep all the profits. Certain parts of the terms backed up this possibility and caused mass outrage. The key lesson I picked up is that when announcing legal changes to a service the company needs to go through the main changes and address their intent.&lt;/p&gt;
 
@@ -972,7 +965,7 @@ I could make.&lt;/p&gt;
  <entry>
    <title>Honeymoon in Malaysia</title>
    <link href="http://chadfield.org/life/honeymoon-in-malaysia/"/>
-   <updated>2012-11-18T00:00:00+11:00</updated>
+   <updated>2012-11-18T00:00:00+00:00</updated>
    <id>http://chadfield.org/life/honeymoon-in-malaysia</id>
    <content type="html">&lt;p&gt;A collection of images I posted on &lt;a href=&quot;http://instagram.com/chappie/&quot; target=&quot;_blank&quot;&gt;Instagram&lt;/a&gt; taken while on my lovely honeymoon in Malaysia.&lt;/p&gt;
 
